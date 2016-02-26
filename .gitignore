@@ -1,0 +1,7 @@
+Library/
+obj/
+*.apk
+*.csproj
+*.vs/
+POC AAJ.sln
+POC AAJ.userprefs
