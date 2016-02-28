@@ -66,9 +66,16 @@ public class Cardboard : MonoBehaviour {
     }
   }
 
-  /// The StereoController instance attached to the main camera, or null if there is none.
-  /// @note Cached for performance.
-  public static StereoController Controller {
+    public float speed = 1f;
+
+    void Update()
+    {
+        transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * Time.deltaTime * speed);
+    }
+
+    /// The StereoController instance attached to the main camera, or null if there is none.
+    /// @note Cached for performance.
+    public static StereoController Controller {
     get {
       Camera camera = Camera.main;
       // Cache for performance, if possible.
@@ -601,12 +608,14 @@ public class Cardboard : MonoBehaviour {
   /// cached results of the first call.  To minimize latency, it should be first
   /// called later in the frame (for example, in `LateUpdate`) if possible.
   public void UpdateState() {
-    if (updatedToFrame != Time.frameCount) {
+        transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * Time.deltaTime);
+        if (updatedToFrame != Time.frameCount) {
       updatedToFrame = Time.frameCount;
       device.UpdateState();
       DispatchEvents();
     }
-  }
+       
+    }
 
   private void DispatchEvents() {
     // Update flags first by copying from device and other inputs.
