@@ -4,11 +4,11 @@ using System.Collections;
 public class showProductName : MonoBehaviour {
 
     public GameObject zPositionText;
+    public string productName;
 
     public void DisplayProductName()
     {
-        Debug.Log("Quilmes touchedddddddd");
-        zPositionText.GetComponent<TextMesh>().text = "Quilmes Cristal 1L - $15";
+        zPositionText.GetComponent<TextMesh>().text = productName;
     }
     
 }
