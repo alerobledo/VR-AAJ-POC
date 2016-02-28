@@ -4,12 +4,10 @@ using System.Collections;
 public class AAJCameraMovement : MonoBehaviour {
 
     public GameObject zPositionText;
-
-    private bool girar = true;
     
 	// Update is called once per frame
 	void Update () {
-        showPositionOnScreen();
+     //   showPositionOnScreen();
   /*      //hacia adelante
         if (transform.position.z <8f)
             transform.Translate(Vector3.forward * Time.deltaTime);
